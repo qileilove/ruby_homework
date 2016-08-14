@@ -1,0 +1,7 @@
+namespace :unit do
+
+		desc 'run all test'
+		task :all do
+		  sh %{ruby specs/*.rb}
+		end
+ end
