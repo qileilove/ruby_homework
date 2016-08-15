@@ -1,7 +1,20 @@
-namespace :unit do
+namespace :test do
+    desc 'run auto_wrap'
+    task :auto_wrap do
+      sh 'ruby specs/test_auto_wrap.rb'
+    end
+
+    desc 'run fizz_buzz'
+    task :fizz_buzz do
+      sh 'ruby specs/test_fizz_buzz.rb'
+    end
+    desc 'run number_to_string'
+    task :number_to_string do
+      sh 'ruby specs/test_number_to_string.rb'
+    end
 
 		desc 'run all test'
-		task :all do
-		  sh %{ruby specs/*.rb}
+		task :all=> ['auto_wrap','fizz_buzz','number_to_string'] do
 		end
  end
+ task :test => ["test:auto_wrap","test:fizz_buzz","test:number_to_string"]
